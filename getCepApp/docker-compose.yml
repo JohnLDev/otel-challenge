@@ -1,0 +1,12 @@
+services:
+  TempByZipcode:
+    build: .
+    image: tempbyzipcode
+    volumes:
+      - .:/app
+    ports:
+      - 8080:8080
+    # environment:
+    #   - ENV_A=${ENV_A}
+    #   - ENV_B=${ENV_B}
+    #   - ENV_C=${ENV_C}
