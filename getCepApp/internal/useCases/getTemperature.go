@@ -18,6 +18,7 @@ type GetTemperaturerResponse struct {
 	Celcius    float64 `json:"temp_C"`
 	Fahrenheit float64 `json:"temp_F"`
 	Kelvin     float64 `json:"temp_K"`
+	City       string  `json:"city"`
 }
 
 func (u *GetTemperatureUseCase) Execute(ctx context.Context, zipcode string) (*GetTemperaturerResponse, error) {
@@ -36,6 +37,7 @@ func (u *GetTemperatureUseCase) Execute(ctx context.Context, zipcode string) (*G
 	response := GetTemperaturerResponse{
 		Celcius:    tempResponse.Current.Celcius,
 		Fahrenheit: tempResponse.Current.Fahrenheit,
+		City:       city,
 	}
 
 	response.Kelvin = tempResponse.Current.Celcius + 273.15

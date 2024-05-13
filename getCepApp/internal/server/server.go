@@ -62,7 +62,7 @@ func StartServer() {
 		}
 
 		w.Header().Set("Content-Type", "application/json")
-		w.Write([]byte(fmt.Sprintf(`{"temp_C": %.2f, "temp_F": %.2f, "temp_K": %.2f}`, response.Celcius, response.Fahrenheit, response.Kelvin)))
+		w.Write([]byte(fmt.Sprintf(`{"city": %s,"temp_C": %.2f, "temp_F": %.2f, "temp_K": %.2f}`, response.City, response.Celcius, response.Fahrenheit, response.Kelvin)))
 	})
 	slog.Info("Server started at :8080")
 	http.ListenAndServe(":8080", r)
